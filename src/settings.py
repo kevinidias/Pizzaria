@@ -138,6 +138,7 @@ STATIC_URL = '/static/'
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 STATIC_URL = '/static/'
+STATIC_ROOT = os.path(BASE_DIR, 'staticfiles')
 
 LOGIN_REDIRECT_URL = '/list'
 
