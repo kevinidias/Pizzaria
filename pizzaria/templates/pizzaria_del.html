@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+
+{% load bootstrap4 %}
+
+{% block content %}
+
+<style>
+    .divdelete {
+        height: 100vh;
+    }
+</style>
+
+    <div class=" divdelete d-flex justify-content-center align-items-center w-100">
+        <form method="POST">
+            {% csrf_token %}
+            <h4>Deseja finalizar o pedido Número: {{ object.id }}, Sabor: {{ object.pizza }} ?</h4>
+            {% buttons %}
+                <button type="submit" class="btn btn-danger">Confirmar</button>
+                    <a class="btn btn-warning" href="{% url 'pizzaria_view' %}">Cancelar</a>
+            {% endbuttons %}
+        </form>
+    </div>  
+
+{% endblock %}

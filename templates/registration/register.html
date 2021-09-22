@@ -1,0 +1,36 @@
+{% extends 'base.html' %}
+{% load bootstrap4 %}
+
+{% block title %}Registre-se para o sistema Bom preço{% endblock %}
+
+{% block content %}
+
+<style>
+    .registertotal{
+        height: 100vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+</style>
+<div class="row registertotal">
+    <div class="col-md-6">
+        <div class="card  auth-card">
+            <div class="card-body">
+                <h4 class="card-title text-center">Registre-se para usar o sistema Bom preço</h4>
+        
+                <form method="post">
+                    {% csrf_token %}
+                    <input type="hidden" name="next" value="{{ next }}">
+        
+                    {% bootstrap_form form %}
+
+                    <button type="submit" class="btn btn-primary btn-block">Registrar</button>
+                </form>
+
+                <p class="change-form-p">Já possui uma conta? <a href="/accounts/login">Clique aqui!</a></p>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

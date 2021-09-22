@@ -1,0 +1,44 @@
+  
+{% extends 'base.html' %}
+
+
+{% block content %}
+    <div class="row">
+        <div class="d-flex align-items-center w-100 justify-content-between">
+            <h1 class="pt-5">Pedidos</h1> 
+            <a class="nav-link" href="/accounts/logout">Sair</a>
+        </div>
+
+   
+        <table class="table table-hover table-bordered table-sm table-responsive-sm table-responsive-md table-responsive-lg table-responsive-xl">
+            <thead class="text-center">
+                <tr>
+                    <th scope="col">Nome</th>
+                    <th scope="col">Telefone</th>
+                    <th scope="col">Bairro</th>
+                    <th scope="col">Rua</th>
+                    <th scope="col">Complemento</th>
+                    <th scope="col">Pizza</th>
+                    <th scope="col">Ações</th>
+                </tr>
+            </thead>
+
+            <tbody class="text-center">
+                {% for cliente in clientes %}
+                <tr>
+                    <th>{{ cliente.nome }}</th>
+                    <th>{{ cliente.telefone }}</th>
+                    <th>{{ cliente.bairro }}</th>
+                    <th>{{ cliente.rua }}</th>
+                    <th>{{ cliente.complemento }}</th>
+                    <th>{{ cliente.pizza }}</th>
+                    <th>
+                        <a class="btn btn-warning" href="{% url 'pizzaria_update' cliente.pk %}">Corrigir</a>
+                        <a class="btn btn-danger" href="{% url 'pizzaria_delete' cliente.pk %}">Finalizar</a>
+                    </th>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+{% endblock %}
